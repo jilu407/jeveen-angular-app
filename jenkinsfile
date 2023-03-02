@@ -13,5 +13,11 @@ pipeline{
             }
 
         }
+        stage('deploy'){
+            steps{
+                sh 'cp -r dist/jeeven-app/*  /var/www/html/'
+            }
+
+        }
     }
 }
