@@ -1,6 +1,8 @@
-FROM node
-RUN mkdir /app
-COPY . /app/
+FROM node:16.16.0 AS build
+WORKDIR /app
+COPY . .
 RUN npm install
-CMD "npm start"
-EXPOSE 4200
+RUN npm run build --prod
+RUN ls /app/dist/
+#FROM nginx
+#COPY --from=build  /app/dist/jeevan-app/ /usr/share/nginx/html/
