@@ -19,9 +19,11 @@ pipeline{
             }
 
         } */
-        stage('docker build ')
-         steps{
+        stage('docker build '){
+            steps{
             sh docker build -t jilu407/jeevan-app:${BUILD_NUMBER} .
          }
+        }
+         
     }
 }
