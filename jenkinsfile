@@ -1,7 +1,7 @@
 pipeline{
     agent any
     stages{
-        stage('install'){
+        /* stage('install'){
             steps{
                 sh 'npm install'
             }
@@ -18,6 +18,10 @@ pipeline{
                 sh 'cp -r dist/jeeven-app/*  /var/www/html/'
             }
 
-        }
+        } */
+        stage('docker build ')
+         steps{
+            sh docker build -t jilu407/jeevan-app:${BUILD_NUMBER} .
+         }
     }
 }
